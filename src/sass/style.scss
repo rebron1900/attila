@@ -550,7 +550,6 @@ textarea {
 		grid-template-rows: 1fr;
 		grid-column-gap: var(--space-40);
 		grid-template-areas: "meta meta content content content content content content";
-<<<<<<< HEAD
 		&:before {
 			content: "";
 			display: block;
@@ -565,7 +564,7 @@ textarea {
 			border-bottom: 1px solid var(--light-border-color);
 		}
 		.archive-header{
-=======
+		}
 	}
 
 	&:first-child:before {
@@ -583,7 +582,6 @@ textarea {
 	
 	.c-card-archive__meta {
 		@media (min-width: 40em){
->>>>>>> a4237f3725782eea59cd6dd23e7f892fd94c2d63
 			grid-area: meta;
 		}
 	}
@@ -1613,7 +1611,7 @@ textarea {
 		}
 	}
 }
-.page-links{
+.tag-hash-page-fullwidth{
 	.inner{
 		max-width: 100%;
 	}
@@ -2299,6 +2297,15 @@ textarea {
 		&:focus,
 		&:hover {
 			color: var(--color-content-main);
+		}
+	}
+	.nav-upyun{
+		display: flex;
+		padding: 0 4rem;
+		justify-content: center;
+		img{
+			max-width: 36rem;
+    		padding: 1rem 0;
 		}
 	}
 }

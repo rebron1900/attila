@@ -2,7 +2,7 @@
   "name": "attila",
   "description": "Ghost Theme",
   "demo": "http://1900.live",
-  "version": "3.5.5",
+  "version": "3.8.0",
   "engines": {
     "ghost": ">=4.0.0"
   },
@@ -77,7 +77,24 @@
           "default": "",
           "group": "post"
       },
+	  "icp_no": {
+          "type": "text",
+          "default": "",
+          "group": "post"
+      },
       "memos_url":{
+        "type":"text",
+        "default": "",
+        "group": "post"
+
+      },
+      "douban_movie":{
+        "type":"text",
+        "default": "",
+        "group": "post"
+
+      },
+      "douban_book":{
         "type":"text",
         "default": "",
         "group": "post"

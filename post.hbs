@@ -39,9 +39,9 @@
 				{{content}}
 				<h3 fr-fix-stroke="true" data-koenig-dnd-droppable="true" class="footer_history">{{t "History"}}</h3>
 				<ul data-koenig-dnd-droppable="true">
-					<li>{{t "Created"}} {{date created_at format="YYYY-MM-DD  hh:mm"}} </li>
-					<li>{{t "Published"}} {{date published_at format="YYYY-MM-DD  hh:mm"}} </li>
-					{{#match published_at "!=" updated_at}}<li>{{t "Updated"}} {{date updated_at format="YYYY-MM-DD  hh:mm"}} </li>{{/match}}
+					<li>{{t "Created"}} {{date created_at format="YYYY-MM-DD  HH:mm"}} </li>
+					<li>{{t "Published"}} {{date published_at format="YYYY-MM-DD  HH:mm"}} </li>
+					{{#match published_at "!=" updated_at}}<li>{{t "Updated"}} {{date updated_at format="YYYY-MM-DD  HH:mm"}} </li>{{/match}}
 				</ul>
 			</section>
 
@@ -113,8 +113,10 @@
 
 
 		<section class="post-comments">
+			{{#if @custom.disqus_shortname}}
          	<div id="tcomment"></div>
         	<script>twikoo.init({ envId: '{{@custom.disqus_shortname}}', el: '#tcomment' })</script>
+    	{{/if }}
 			</section>
 
 		</div>
@@ -127,9 +129,7 @@
 {{#contentFor "scripts"}}
 <script>
   $(document).ready(function () {
-
 	
-	window.ViewImage && ViewImage.init('.kg-card img');
 	var viewport = $(window);
 	var post = $('.post-content');
 	// Responsive videos with fitVids
