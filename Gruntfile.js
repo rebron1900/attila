@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   'use strict';
-  const sass = require('node-sass');
+  const sass = require('sass');
   require('load-grunt-tasks')(grunt, {
     pattern: ['grunt-*']
   });
@@ -14,7 +14,7 @@ module.exports = function(grunt) {
       'jsTargetDir': 'assets/js',
       'jsDependencies': [
         '<%= config.jsSrcDir %>/libs/jquery.min.js',
-        '<%= config.jsSrcDir %>/libs/view-image.min.js',
+        '<%= config.jsSrcDir %>/libs/simplebox.min.js',
         '<%= config.jsSrcDir %>/libs/tmpl.min.js',
         '<%= config.jsSrcDir %>/libs/jquery.fitvids.js',
         '<%= config.jsSrcDir %>/libs/pangu.min.js',
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('build', [
-    'sass:dist',
+    'sass',
     'postcss:dist',
     'copy:dist',
     'uglify'

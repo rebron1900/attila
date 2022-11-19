@@ -1,4 +1,24 @@
 var fuse,result,posts,myIndex;
+function codestyling() {
+	$('pre code').each(function(i, e) {
+				// Code highlight
+		hljs.highlightBlock(e);
+		// No lines for plain text blocks
+		if (!$(this).hasClass('language-text')) {
+			var code = $(this);
+					// Calculate amount of lines
+			var lines = code.html().split(/\n(?!$)/g).length;
+			var numbers = [];
+			if (lines > 1) {
+			lines++;
+			}
+			for (i = 1; i < lines; i++) {
+			numbers += '<span class="line" aria-hidden="true">' + i + '</span>';
+			}
+			code.parent().append('<div class="lines">' + numbers + '</div>');
+		}
+		});
+}
 $().ready(function(){
   var posts,url;
   /* Custom settings for Fuse.js */
@@ -10,6 +30,7 @@ $().ready(function(){
     useExtendedSearch: true,
     keys: [{ name: 'title',weight: 0.7 }, { name: 'excerpt',weight: 0.3 }]
   };
+
 
   //回到顶部
   $(window).scroll(function () {

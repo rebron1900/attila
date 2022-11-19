@@ -494,6 +494,30 @@ textarea {
 	}
 }
 
+
+
+/***  美化滚动条 ****/
+html::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+html::-webkit-scrollbar-track {
+	background: var(--color-background-contrast);
+	border-radius: 2px;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: var(--ghost-accent-color);
+	border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+	background: #333;
+}
+
+
+
 /*============================
 	archives
 ==============================*/
@@ -861,9 +885,11 @@ textarea {
 			.talks__text {
 				background: #4a4b50;
 				border-radius: 8px;
-				font-size: 1em;
 				padding: 12px 16px;
 				position: relative;
+				width:100%;
+				overflow-wrap:break-word;
+				line-height:1.75rem
 				p{
 					margin: 0;
 				}
@@ -875,6 +901,152 @@ textarea {
 					display: -ms-flexbox;
 					display: flex;
 					font-weight: 700;
+				}
+				.talks__imgs{
+					display: flex;
+					width: 100%;
+					flex-direction: row;
+					align-items: flex-start;
+					justify-content: flex-start;
+					overflow-x: auto;
+					overflow-y: hidden;
+				}
+				&.expanded {
+					display:-webkit-box;
+					-webkit-box-orient:vertical;
+					-webkit-line-clamp:8;
+					overflow:hidden
+				}
+				&>p {
+					margin-bottom:0;
+					height:auto;
+					width:100%;
+					overflow-wrap:break-word;
+				}
+				&>p:last-child {
+					margin-bottom:0
+				}
+				& .img {
+					display: block;
+					max-width: 100%;
+					cursor: pointer;
+					max-height: 10rem;
+					width: auto;
+					border-radius: 0.25rem;
+					margin: 0 2px 2px 0;
+				}
+				& .img:hover {
+					--tw-shadow: 0 1px 3px 0 rgb(0 0 0 / .1), 0 1px 2px -1px rgb(0 0 0 / .1);
+					--tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+					box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+				}
+				& .tag-span {
+					display:block;
+					width:auto;
+					cursor:pointer;
+					--tw-text-opacity: 1;
+					color:var(--ghost-accent-color);
+				}
+				& .memo-link-text {
+					display:inline-block;
+					cursor:pointer;
+					border-style:none;
+					font-weight:700;
+					text-decoration-line:none
+				}
+				& .memo-link-text:hover {
+					opacity:.8
+				}
+				& .link {
+					color: inherit;
+					text-decoration: none;
+					font-weight: 400;
+					box-shadow: inset 0 -2px 0 var(--ghost-accent-color);
+					transition: all ease-out 0.1s;
+				}
+				& .link:hover {
+					opacity:.8
+				}
+				& .link code {
+					text-decoration-line:underline;
+					text-decoration-thickness:1px
+				}
+				& .ol-block, & .ul-block, & .todo-block {
+					margin-right:1px;
+					box-sizing:border-box;
+					display:inline-block;
+					width:2rem;
+					-webkit-user-select:none;
+					-moz-user-select:none;
+					user-select:none;
+					white-space:nowrap;
+					text-align:right;
+				}
+				& .ul-block {
+					text-align:center
+				}
+				& .todo-block {
+					box-sizing:border-box;
+					height:1rem;
+					width:1rem;
+					cursor:pointer;
+					border-radius:.25rem;
+					border-width:1px;
+					line-height:1rem;
+					--tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / .05);
+					--tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
+					box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
+				}
+				& .todo-block:hover {
+					opacity:.8
+				}
+				& .todo-block {
+					transform:translateY(2px);
+					margin-left:6px;
+					margin-right:6px
+				}
+				& pre {
+					margin-top:.25rem;
+					margin-bottom:.25rem;
+					width:100%;
+					white-space:pre-wrap;
+					border-radius:.25rem;
+					padding:1rem;
+					display: grid;
+				}
+				& pre code {
+					display: block;
+					margin: -1rem 0rem 2rem 3rem;
+					padding: 0 2rem;
+				}
+				& table {
+					margin-top:.25rem;
+					margin-bottom:.25rem;
+					table-layout:auto;
+					border-collapse:collapse;
+					border-width:1px;
+					--tw-border-opacity: 1;
+					border-color:rgb(209 213 219 / var(--tw-border-opacity))
+				}
+				& table th {
+					border-width:1px;
+					--tw-border-opacity: 1;
+					border-color:rgb(209 213 219 / var(--tw-border-opacity));
+					padding:.25rem 1rem;
+					text-align:center
+				}
+				& table td {
+					border-width:1px;
+					--tw-border-opacity: 1;
+					border-color:rgb(209 213 219 / var(--tw-border-opacity));
+					padding:.25rem 1rem;
+					text-align:center
+				}
+				& blockquote {
+					border-left-width:4px;
+					padding-left:.5rem;
+					--tw-text-opacity: 1;
+					color:rgb(156 163 175 / var(--tw-text-opacity))
 				}
 			}
 			.talks__meta{
@@ -1585,7 +1757,7 @@ textarea {
 	padding-right: 0;
 
 	.app_toolbar{
-		z-index: 99;
+		z-index: 98;
 		display: block;
 		position: fixed;
 		bottom: 5px;
@@ -1868,7 +2040,7 @@ textarea {
 	top: 0;
 	left: 0;
 	width: 100%;
-	z-index: 400;
+	z-index: 99;
 	transition: all ease-out 0.3s;
 	@media only screen and (max-width: $breakpoint-medium) {
 		transform: translate3d(0,-100%,0);
